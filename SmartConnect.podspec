@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
 # 1
 s.platform = :ios
-s.ios.deployment_target = '12.0'
+s.ios.deployment_target = '8.0'
 s.name = "SmartConnect"
 s.summary = "SmartConnect library is used to connect to SmartPay devices."
 s.requires_arc = true
