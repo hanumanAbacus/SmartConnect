@@ -1,0 +1,17 @@
+{
+    "transactionId": "f363c7de-102c-4d80-a902-ed37413ca599",
+    "transactionTimeStamp": "201809182353193193",
+    "merchantId": "8dac4049-20b3-473f-b3a3-2682667ece33",
+    "deviceId": "7070714000",
+    "transactionStatus": "PENDING",
+    "data": {
+        "PosVendor": "Smartpay",
+        "PosRegisterID": "9444ae07-dc63-e49c-33e3-59a7c108cc81",
+        "PosBusinessName": "John Doe's Coffee Shop",
+        "AmountTotal": "500",
+        "DeviceID": "7070714000",
+        "Function": "Card.Purchase",
+        "PollingUrl": "https://api-dev.smart-connect.cloud/pos/transaction/f363c7de-102c-4d80-a902-ed37413ca599?merchantAccessToken=a4934205-e3fa-47ea-88c3-6f6422a0af72"
+    },
+    "merchantAccessToken": "a4934205-e3fa-47ea-88c3-6f6422a0af72"
+}

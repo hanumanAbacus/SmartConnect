@@ -1,0 +1,33 @@
+{
+    "transactionId": "f363c7de-102c-4d80-a902-ed37413ca599",
+    "transactionTimeStamp": "201809182353193193",
+    "merchantId": "8dac4049-20b3-473f-b3a3-2682667ece33",
+    "deviceId": "7070714000",
+    "transactionStatus": "COMPLETED",
+    "data": {
+        "PosVendor": "Smartpay",
+        "PosRegisterID": "9444ae07-dc63-e49c-33e3-59a7c108cc81",
+        "PosBusinessName": "John Doe's Coffee Shop",
+        "AmountTotal": "615",
+        "DeviceID": "7070714000",
+        "Function": "Card.Purchase",
+        "Merchant": "1",
+        "Company": "Smartpay",
+        "RequestId": "f363c7de-102c-4d80-a902-ed37413ca599",
+        "TransactionResult": "OK-ACCEPTED",
+        "Result": "OK",
+        "ResultText": "Transaction takes longer than usual",
+        "AuthId": "PIN147",
+        "AcquirerRef": "000013",
+        "TerminalRef": "79707014",
+        "CardPan": "....0138",
+        "CardType": "EMV TEST CARD",
+        "AccountType": "CREDIT",
+        "AmountSurcharge": "15",
+        "AmountTip": "100",
+        "Timestamp": "20180919115520",
+        "Receipt": "         PAYMARK PKMS         \n        TEST TERMINAL         \n        182 Wairau Rd         \n\n*-----------EFTPOS-----------*\nTERMINAL              79707014\nTIME             19SEP18 11:55\nTRAN 000013             CREDIT\nEMV TEST CARD\nCARD                  ....0138\nVisa Debit\nRID: A000000003\nPIX: 1010\nTC : E0567EF3160C55CF\nTVR: 08C0048000\nATC: 04DE\nTSI: E800\nAUTH PIN147\nREF NO            000147      \nPURCHASE              NZ$ 5.00\nSURCHARGE             NZ$ 0.15\nTIP                   NZ$ 1.00\nTOTAL                 NZ$ 6.15\n\n           ACCEPTED           \n******DUPLICATE  RECEIPT******\n*----------------------------*\n\n",
+        "RequestTimestamp": "201809182353196949",
+        "ResponseTimestamp": "201809182355302736"
+    }
+}
