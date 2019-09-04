@@ -28,7 +28,7 @@ s.framework = "UIKit"
 s.dependency 'Alamofire', '~> 4.8.2'
 s.dependency 'Gloss', '~> 3.0.0'
 s.dependency 'Moya', '~> 13.0.1'
-s.dependency 'Gloss', '~> 4.3.0'
+s.dependency 'ReachabilitySwift', '~> 4.3.0'
 
 # 8
 s.source_files = "SmartConnect/**/*.{swift}"
