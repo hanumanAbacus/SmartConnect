@@ -1,5 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '10.0'
+platform :ios, '8.0'
 project 'SmartConnect.xcodeproj'
 
 def common_pods
