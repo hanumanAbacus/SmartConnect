@@ -42,7 +42,7 @@ public class SmartConnect: NSObject {
     }
     
     @objc
-    func startPolling(url: String, processing: @escaping (_ result: [String: Any]?, _ errorMessage: String?) -> Void, completion: @escaping (_ result: [String: Any]?, _ errorMessage: String?) -> Void) {
+    public func startPolling(url: String, processing: @escaping (_ result: [String: Any]?, _ errorMessage: String?) -> Void, completion: @escaping (_ result: [String: Any]?, _ errorMessage: String?) -> Void) {
         stopPolling()
         
         let invocation = TimerInvocation {
@@ -69,7 +69,7 @@ public class SmartConnect: NSObject {
     }
     
     @objc
-    func stopPolling() {
+    public func stopPolling() {
         self.pollingTimer?.invalidate()
         self.pollingTimer = nil
     }
