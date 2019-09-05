@@ -10,6 +10,11 @@ import Foundation
 import Gloss
 import Moya
 
+enum SMResult {
+    case success(result: Any?)
+    case failure(Error)
+}
+
 enum VoidResult {
     case success
     case failure(Error)

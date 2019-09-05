@@ -18,4 +18,5 @@ extension SmartConnectService {
             completion(.success)
         })
     }
+
 }

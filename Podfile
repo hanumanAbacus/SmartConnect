@@ -13,6 +13,10 @@ target 'SmartConnect' do
     common_pods
 end
 
+target 'SmartPayDemo' do
+  common_pods
+end
+
 target 'SmartConnectTests' do
     common_pods
 end

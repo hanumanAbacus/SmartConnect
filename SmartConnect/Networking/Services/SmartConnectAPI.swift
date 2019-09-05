@@ -9,39 +9,6 @@
 import Foundation
 import Moya
 
-enum TransactionType: String {
-    case defaultType = ""
-    
-    enum QR: String {
-        case merchantPurchase = "QR.Merchant.Purchase"
-        case consumerPurchase = "QR.Consumer.Purchase"
-        case refund = "QR.Refund"
-    }
-    
-    enum Journal: String {
-        case reprintReceipt = "Journal.ReprintReceipt"
-    }
-
-    enum Terminal: String {
-        case getStatus = "Terminal.GetStatus"
-        case readCard = "Terminal.ReadCard"
-    }
-
-    enum Acquirer: String {
-        case logon = "Acquirer.Logon"
-        case settlementInquiry = "Acquirer.Settlement.Inquiry"
-        case settlementCutover = "Acquirer.Settlement.Cutover"
-    }
-
-    enum Card: String {
-        case purchase = "Card.Purchase"
-        case refund = "Card.Refund"
-        case purchasePlusCash = "Card.PurchasePlusCash"
-        case cashAdvance = "Card.CashAdvance"
-        case authorise = "Card.Authorise"
-        case finalise = "Card.Finalise"
-    }
-}
 
 enum TransactionMode: String {
     case ASYNC = "ASYNC"
@@ -50,7 +17,8 @@ enum TransactionMode: String {
 
 enum SmartConnectAPI {    
     case pairing(pairingCode: String, address: SMAddress?)
-    case transaction(type: TransactionType, saleData: String?, posNotificationCallbackUrl: String?)
+    case transaction(type: String, requestData: SMTrasactionRequest?, saleData: String?, posNotificationCallbackUrl: String?)
+    case polling(url: String)
 }
 
 extension SmartConnectAPI: TargetType, AccessTokenAuthorizable {
@@ -62,7 +30,8 @@ extension SmartConnectAPI: TargetType, AccessTokenAuthorizable {
     var authorizationType: AuthorizationType {
         switch self {
         case .pairing,
-             .transaction:
+             .transaction,
+             .polling:
             return .none
         default:
             return .bearer
@@ -102,8 +71,10 @@ extension SmartConnectAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         case .pairing(let pairingCode, _):
             return "/\(SMConfiguration.apiVersion)/Pairing/\(pairingCode)"
-        case .transaction(_, _, _):
+        case .transaction(_, _, _, _):
             return "/\(SMConfiguration.apiVersion)/Transaction/"
+        case .polling(let url):
+            return url
         }
     }
     
@@ -112,7 +83,7 @@ extension SmartConnectAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         case .pairing(_, _):
             return .put
-        case .transaction(_, _, _):
+        case .transaction(_, _, _, _):
              return .post
         default:
             // All requests are GET unless specified otherwise
@@ -128,11 +99,17 @@ extension SmartConnectAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         case .pairing(_, _):
             print("pairing")
-        case .transaction(let type, let saleData, let posNotificationCallbackUrl):
-            defaultParameters["TransactionMode"] = TransactionMode.ASYNC
+        case .transaction(let type, let requestData, let saleData, let posNotificationCallbackUrl):
+            defaultParameters["TransactionMode"] = TransactionMode.ASYNC.rawValue
             defaultParameters["TransactionType"] = type
             defaultParameters["SaleData"] = saleData
             defaultParameters["PosNotificationCallbackUrl"] = posNotificationCallbackUrl
+            
+            if let param = requestData?.requestParameters(type: type) {
+                param.forEach {
+                    defaultParameters[$0.0] = $0.1
+                }
+            }
         default:
             return nil
         }
@@ -143,7 +120,7 @@ extension SmartConnectAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         case .pairing(_, _):
             return stubbedResponse("Pairing")
-        case .transaction(_, _, _):
+        case .transaction(_, _, _, _):
             return stubbedResponse("Transaction")
         default:
             return "None".UTF8EncodedData
