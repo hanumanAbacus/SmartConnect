@@ -10,10 +10,10 @@ import Foundation
 
 @objc
 public class SMTrasactionRequest: NSObject {
-    public var amount: NSNumber? = nil
-    public var amountCash: NSNumber? = nil
-    public var transactionReference: NSString? = nil
-    public var date: Date? = nil
+    @objc public var amount: NSNumber? = nil
+    @objc public var amountCash: NSNumber? = nil
+    @objc public var transactionReference: NSString? = nil
+    @objc public var date: Date? = nil
     
     public func requestParameters(type: String) -> [String : Any] {
         var parameters = [String : Any]()
