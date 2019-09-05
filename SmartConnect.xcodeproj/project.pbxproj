@@ -41,6 +41,13 @@
 			remoteGlobalIDString = 745E7924231F957E00DA11FB;
 			remoteInfo = SmartConnect;
 		};
+		745E79B623208F3F00DA11FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 745E791C231F957E00DA11FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 745E7924231F957E00DA11FB;
+			remoteInfo = SmartConnect;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -297,6 +304,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				745E79B723208F3F00DA11FB /* PBXTargetDependency */,
 			);
 			name = SmartPayDemo;
 			productName = SmartPayDemo;
@@ -465,6 +473,11 @@
 			isa = PBXTargetDependency;
 			target = 745E7924231F957E00DA11FB /* SmartConnect */;
 			targetProxy = 745E7930231F957E00DA11FB /* PBXContainerItemProxy */;
+		};
+		745E79B723208F3F00DA11FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 745E7924231F957E00DA11FB /* SmartConnect */;
+			targetProxy = 745E79B623208F3F00DA11FB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

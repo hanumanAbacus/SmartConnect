@@ -31,7 +31,7 @@ s.dependency 'Moya', '~> 13.0.1'
 s.dependency 'ReachabilitySwift', '~> 4.3.0'
 
 # 8
-s.source_files = "SmartConnect/**/*.{swift}"
+s.source_files = "SmartConnect/**/*.{h}"
 
 # 9
 s.resources = "SmartConnect/**/*.{png,jpeg,jpg,storyboard,xib,xcassets}"
