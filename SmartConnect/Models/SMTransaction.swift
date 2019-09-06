@@ -35,7 +35,11 @@ public struct SMTransaction: Glossy {
         return jsonify([
             "transactionId" ~~> transactionId,
             "transactionTimeStamp" ~~> transactionTimeStamp,
-            "transactionStatus" ~~> transactionStatus
+            "transactionStatus" ~~> transactionStatus,
+            "cardPan" ~~> transactionData.cardPan,
+            "accountType" ~~> transactionData.accountType,
+            "receipt" ~~> transactionData.receipt,
+            "amountTotal" ~~> transactionData.amountTotal
             ])
     }
 }
