@@ -11,13 +11,15 @@ import Foundation
 @objc
 public class SmartConnect: NSObject {
     var pairingCode: String
+    
     @objc
     public var pollingInterval: TimeInterval = 5
     var pollingTimer: Timer?
 
     @objc
-    public init(pairingCode: String) {
+    public init(pairingCode: String, registerId: String, registerName: String, businessName: String, vendorName: String) {
         self.pairingCode = pairingCode
+        SMConfiguration.shared.update(registerId: registerId, registerName: registerName, businessName: businessName, vendorName: vendorName)
     }
     
     @objc

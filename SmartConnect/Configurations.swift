@@ -8,11 +8,6 @@
 
 import Foundation
 
-let registerId = "6bd3bf1c-11cb-42ae-92c7-46ac39680166"
-let registerName = "Register 1"
-let businessName = "Demo Shop"
-let vendorName = "Test POS"
-
 enum Environment: String {
     case Staging = "staging"
     case Production = "production"
@@ -26,9 +21,15 @@ enum Environment: String {
     }
 }
 
-struct SMConfiguration {
+class SMConfiguration {
+    var registerName: String? = nil
+    var registerId: String? = nil
+    var businessName: String? = nil
+    var vendorName: String? = nil
+    
     static let apiVersion = "POS"
-
+    static var shared: SMConfiguration = SMConfiguration()
+    
     static var environment: Environment = {
         if let configuration = Bundle.main.object(forInfoDictionaryKey: "Configuration") as? String {
             switch configuration {
@@ -43,10 +44,18 @@ struct SMConfiguration {
         return Environment.Production
     }()
     
-    static func defaultParameters() -> [String: Any] {
-        return ["POSRegisterID": registerId,
-                "POSRegisterName": registerName,
-               "POSBusinessName": businessName,
-               "POSVendorName": vendorName]
+    public func update(registerId: String,registerName: String, businessName: String, vendorName: String){
+        self.registerId = registerId
+        self.registerName = registerName
+        self.businessName = businessName
+        self.vendorName = vendorName
+    }
+    
+    public func defaultParameters() -> [String: Any] {
+        return ["POSRegisterID": self.registerId as Any ,
+                "POSRegisterName": self.registerName as Any,
+               "POSBusinessName": self.businessName as Any,
+               "POSVendorName": self.vendorName as Any]
     }
 }
+

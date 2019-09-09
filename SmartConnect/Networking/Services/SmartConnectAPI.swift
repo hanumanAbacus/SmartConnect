@@ -94,7 +94,7 @@ extension SmartConnectAPI: TargetType, AccessTokenAuthorizable {
     
     ///
     var parameters: [String: Any]? {
-        var defaultParameters: [String : Any] = SMConfiguration.defaultParameters()
+        var defaultParameters: [String : Any] = SMConfiguration.shared.defaultParameters()
 
         switch self {
         case .pairing(_, _):

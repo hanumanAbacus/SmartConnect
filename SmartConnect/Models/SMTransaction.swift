@@ -39,7 +39,8 @@ public struct SMTransaction: Glossy {
             "cardPan" ~~> transactionData.cardPan,
             "accountType" ~~> transactionData.accountType,
             "receipt" ~~> transactionData.receipt,
-            "amountTotal" ~~> transactionData.amountTotal
+            "amountTotal" ~~> transactionData.amountTotal,
+            "pollingURL" ~~> transactionData.pollingUrl
             ])
     }
 }
