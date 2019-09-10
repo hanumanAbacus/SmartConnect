@@ -10,7 +10,7 @@ import UIKit
 import SmartConnect
 
 class ViewController: UIViewController {
-    let smartConnect = SmartConnect(pairingCode: "48358428")
+    let smartConnect = SmartConnect(pairingCode: "48138350", registerId: "1234567890", registerName: "ipad ipad ipad", businessName: "coffeedemoKK",vendorName: "Abacus POS")
 
     override func viewDidLoad() {
         super.viewDidLoad()
