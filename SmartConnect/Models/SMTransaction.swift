@@ -45,7 +45,8 @@ public struct SMTransaction: Glossy {
             "amountTotal" ~~> transactionData.amountTotal,
             "pollingURL" ~~> pURL,
             "transactionResult" ~~> transactionData.transactionResult,
-            "resultText" ~~> transactionData.resultText
+            "resultText" ~~> transactionData.resultText,
+            "tipAmount" ~~> transactionData.amountTip
             ])
     }
 }
