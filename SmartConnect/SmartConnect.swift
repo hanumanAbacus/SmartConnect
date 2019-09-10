@@ -64,7 +64,7 @@ public class SmartConnect: NSObject {
                         weakSelf.stopPolling()
                     } else {
                         var json = result.toJSON()
-                        json?["PollingURL"] = url
+                        json?["pollingURL"] = url
                         processing(json, nil)
                     }
                 }
