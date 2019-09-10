@@ -18,6 +18,7 @@ public struct SMTransaction: Glossy {
     var transactionStatus: String!
     var transactionData: SMTransactionData!
     var merchantAccessToken: String!
+    var pollingURL: String!
 
     //MARK: Decodable
     public init!(json: JSON){
@@ -28,10 +29,12 @@ public struct SMTransaction: Glossy {
         transactionStatus = "transactionStatus" <~~ json
         transactionData = "data" <~~ json
         merchantAccessToken = "merchantAccessToken" <~~ json
+        pollingURL = "PollingUrl" <~~ json
     }
     
     //MARK: Encodable
     public func toJSON() -> JSON? {
+        let pURL: String? = pollingURL ?? transactionData.pollingUrl
         return jsonify([
             "transactionId" ~~> transactionId,
             "transactionTimeStamp" ~~> transactionTimeStamp,
@@ -40,7 +43,7 @@ public struct SMTransaction: Glossy {
             "accountType" ~~> transactionData.accountType,
             "receipt" ~~> transactionData.receipt,
             "amountTotal" ~~> transactionData.amountTotal,
-            "pollingURL" ~~> transactionData.pollingUrl,
+            "pollingURL" ~~> pURL,
             "transactionResult" ~~> transactionData.transactionResult,
             "resultText" ~~> transactionData.resultText
             ])

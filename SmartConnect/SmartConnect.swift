@@ -47,7 +47,7 @@ public class SmartConnect: NSObject {
     @objc
     public func startPolling(url: String, processing: @escaping (_ result: [String: Any]?, _ errorMessage: String?) -> Void, completion: @escaping (_ result: [String: Any]?, _ errorMessage: String?) -> Void) {
         stopPolling()
-        
+
         let invocation = TimerInvocation {
             SmartConnectService.startPolling(url: url, completion: { [weak self] (result) in
                 guard let weakSelf = self else { return }
@@ -63,7 +63,9 @@ public class SmartConnect: NSObject {
                         completion(result.toJSON(), nil)
                         weakSelf.stopPolling()
                     } else {
-                        processing(result.toJSON(), nil)
+                        var json = result.toJSON()
+                        json?["PollingURL"] = url
+                        processing(json, nil)
                     }
                 }
             })
@@ -89,6 +91,7 @@ public class SmartConnect: NSObject {
                     completion(nil, NetworkError.error(withErrorCode: .JSONMalformed).localizedDescription)
                     return
                 }
+                
                 weakSelf.startPolling(url: pollingURL, processing: processing, completion: completion)
             }
         }
