@@ -68,7 +68,3 @@ fastlane/screenshots/**/*.png
 fastlane/test_output
 Index
 SmartConnect.xcodeproj/project.xcworkspace/xcshareddata
-SmartConnect.xcodeproj/project.xcworkspace
-Podfile.lock
-Pods
-SmartConnect.xcworkspace

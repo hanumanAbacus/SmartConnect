@@ -1,0 +1,6 @@
+module Pods_SmartPayDemo {
+  umbrella header "Pods-SmartPayDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}

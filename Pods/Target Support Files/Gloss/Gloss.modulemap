@@ -1,0 +1,6 @@
+module Gloss {
+  umbrella header "Gloss-umbrella.h"
+
+  export *
+  module * { export * }
+}

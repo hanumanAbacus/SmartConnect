@@ -1,0 +1,6 @@
+module Pods_SmartConnect {
+  umbrella header "Pods-SmartConnect-umbrella.h"
+
+  export *
+  module * { export * }
+}

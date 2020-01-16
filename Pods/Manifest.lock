@@ -1,0 +1,38 @@
+PODS:
+  - Alamofire (4.8.2)
+  - Gloss (3.0.0)
+  - Moya (13.0.1):
+    - Moya/Core (= 13.0.1)
+  - Moya/Core (13.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.1)
+  - ReachabilitySwift (4.3.0)
+  - Result (4.1.0)
+  - SwiftLint (0.34.0)
+
+DEPENDENCIES:
+  - Gloss
+  - Moya
+  - ReachabilitySwift (= 4.3.0)
+  - SwiftLint
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - Gloss
+    - Moya
+    - ReachabilitySwift
+    - Result
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Gloss: c4b5281273a9053eadbda219001c97595aa9b1e8
+  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
+  ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
+
+PODFILE CHECKSUM: 2bdcc0f2017d1f6a95480754a8b96bf3015eabd9
+
+COCOAPODS: 1.8.4
