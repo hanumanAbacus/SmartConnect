@@ -16,7 +16,7 @@ enum Environment: String {
     var baseURL: String {
         switch self {
         case .Staging: return "https://api-dev.smart-connect.cloud"
-        case .Production, .StubLocal: return "https://api-dev.smart-connect.cloud"
+        case .Production, .StubLocal: return "https://api.smart-connect.cloud"
         }
     }
 }
