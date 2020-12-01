@@ -9,7 +9,6 @@
 import Foundation
 import Moya
 
-
 enum TransactionMode: String {
     case ASYNC = "ASYNC"
     case SYNC = "" // need to send empty
@@ -62,7 +61,7 @@ extension SmartConnectAPI: TargetType, AccessTokenAuthorizable {
     
     ///
     var baseURL: URL {
-        let url: String = SMConfiguration.environment.baseURL
+        let url: String = SMConfiguration.environment.baseURL(businessEnvironment: Environment(rawValue: SMConfiguration.shared.businessEnvironment!)!)
         return URL(string: url)!
     }
     

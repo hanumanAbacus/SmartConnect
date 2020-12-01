@@ -8,13 +8,13 @@
 
 import Foundation
 
-enum Environment: String {
+public enum Environment: String {
     case Staging = "staging"
     case Production = "production"
     case StubLocal = "stubLocal"
     
-    var baseURL: String {
-        switch self {
+    public func baseURL(businessEnvironment: Environment) -> String {
+        switch businessEnvironment {
         case .Staging: return "https://api-dev.smart-connect.cloud"
         case .Production, .StubLocal: return "https://api.smart-connect.cloud"
         }
@@ -26,11 +26,13 @@ class SMConfiguration {
     var registerId: String? = nil
     var businessName: String? = nil
     var vendorName: String? = nil
+    var businessEnvironment: String? = nil
     
     static let apiVersion = "POS"
     static var shared: SMConfiguration = SMConfiguration()
     
     static var environment: Environment = {
+        
         if let configuration = Bundle.main.object(forInfoDictionaryKey: "Configuration") as? String {
             switch configuration {
             case "StubLocal":
@@ -44,18 +46,20 @@ class SMConfiguration {
         return Environment.Production
     }()
     
-    public func update(registerId: String,registerName: String, businessName: String, vendorName: String){
+    public func update(registerId: String,registerName: String, businessName: String, vendorName: String, businessEnvironment: String){
         self.registerId = registerId
         self.registerName = registerName
         self.businessName = businessName
         self.vendorName = vendorName
+        self.businessEnvironment = businessEnvironment
     }
     
     public func defaultParameters() -> [String: Any] {
         return ["POSRegisterID": self.registerId as Any ,
                 "POSRegisterName": self.registerName as Any,
                "POSBusinessName": self.businessName as Any,
-               "POSVendorName": self.vendorName as Any]
+               "POSVendorName": self.vendorName as Any,
+               "POSBusinessEnvironment": self.businessEnvironment as Any]
     }
 }
 
