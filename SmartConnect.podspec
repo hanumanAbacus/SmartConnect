@@ -8,7 +8,7 @@ s.summary = "SmartConnect library is used to connect to SmartPay devices."
 s.requires_arc = true
 
 # 2
-s.version = "0.1.0"
+s.version = "1.1.13"
 
 # 3
 s.license = { :type => "MIT", :file => "LICENSE" }
